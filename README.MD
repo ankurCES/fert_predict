@@ -2,3 +2,9 @@
 
 ### Usage
 ``` process_data.py --dataset <dataset_name> --file <file_name> --mode <mode> ```
+
+### Supported Modes
+``` 
+train
+predict
+```
