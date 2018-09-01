@@ -77,11 +77,11 @@ def main(argv):
 			if arg in ['train', 'predict']:
 				mode = arg
 			else:
-				print('Invalid options. Run with --help')
+				mode = None
 		elif opt in ('-d', '--dataset'):
 			dataset_name = arg
 		else:
-			print('Invalid options. Run with --help')
+			print('Invalid options. Run with --help to see usage')
 	
 	series = pd.read_csv(file_name, sep=',', header=0, index_col=0, squeeze=True)
 	data = series.values
@@ -94,6 +94,8 @@ def main(argv):
 	elif mode == 'predict':
 		model = model_helper.load_model(model_file, model_weights_file)
 		predict(data, model, 3)
+	else:
+		print('Invalid options. Run with --help to see usage')
 
 
 if __name__ == '__main__':
